@@ -1,8 +1,6 @@
 const service = require("./observations.service");
 const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 
-const observations = []
-
 const validSkyConditions = [100, 101, 102, 103, 104, 106, 108, 109]
 
 function hasData(req, res, next) {
@@ -46,8 +44,9 @@ async function create(req, res) {
 }
 
 async function list(req, res) {
+  const data = await service.list();
     res.json({
-      data: observations,
+      data,
     });
   }
   
