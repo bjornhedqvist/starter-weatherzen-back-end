@@ -52,5 +52,5 @@ async function list(req, res) {
   
 module.exports = {
   create: [hasData, hasLatitude, hasLongitude, hasSkyCondition, asyncErrorBoundary(create)],
-  list
+  list: asyncErrorBoundary(list),
 };
